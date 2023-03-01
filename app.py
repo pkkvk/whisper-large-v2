@@ -39,7 +39,8 @@ def inference(model_inputs:dict) -> dict:
                              beam_size= model_inputs.get('beam_size',None),
                              patience= model_inputs.get('patience',None),
                              prompt= model_inputs.get('prompt',None))
-    output = {"text":result["text"]}
+    output = {"text":result["text"], "segments":result["segments"],
+        "language":result["language"]}
     os.remove("input.mp3")
     # Return the results as a dictionary
     return output
